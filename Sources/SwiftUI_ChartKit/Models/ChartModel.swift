@@ -24,7 +24,7 @@ public class ChartModel: ObservableObject {
         }
     }
     
-    func updateData(values: [Double]) {
+    public func updateData(values: [Double]) {
         chartData.removeAll()
         for dataPoint in values {
             if let maxValue = values.max() {
