@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class ChartModel: ObservableObject {
+public class ChartModel: ObservableObject {
     @Published var chartData = [ChartDataPoint]()
     @Published var chartStyle : ChartStyle
 
     
-    init(values: [Double]) {
+    public init(values: [Double]) {
         self.chartStyle = ChartStyle()
         for dataPoint in values {
             if let maxValue = values.max() {
