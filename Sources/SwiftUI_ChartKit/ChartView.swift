@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 public struct ChartView: View {
-    enum ChartTypes {
+    public enum ChartTypes {
         case barChart
         case lineChart
     }
@@ -22,6 +22,11 @@ public struct ChartView: View {
     
     var selectedIndex = -1
     
+    public init(type: ChartTypes, data: Binding<[ChartDataPoint]>, style: Binding<ChartStyle>) {
+        self.chartType = type
+        self._data = data
+        self._style = style
+    }
     
     public var body: some View {
         VStack {

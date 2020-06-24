@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChartDataPoint {
+public struct ChartDataPoint {
     var yValue: Double
     var normalizedValue: Double
     var xValue: String?

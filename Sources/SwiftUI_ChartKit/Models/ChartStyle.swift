@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ChartStyle {
+public class ChartStyle {
     var color: Color = .blue
     var reflectionColor: Color = Color.blue.opacity(0.4)
     var gradient: Gradient?
