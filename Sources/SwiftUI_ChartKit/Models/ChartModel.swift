@@ -13,7 +13,7 @@ public class ChartModel: ObservableObject {
     @Published var chartStyle : ChartStyle
 
     
-    init(values: [Double]) {
+    public init(values: [Double]) {
         self.chartStyle = ChartStyle()
         for dataPoint in values {
             if let maxValue = values.max() {
@@ -25,7 +25,7 @@ public class ChartModel: ObservableObject {
         }
     }
     
-    func updateData(values: [Double]) {
+    public func updateData(values: [Double]) {
         chartData.removeAll()
         for dataPoint in values {
             if let maxValue = values.max() {
