@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct BarChartBar: View {
     @State var show : Bool = false
     @Binding var value: Double

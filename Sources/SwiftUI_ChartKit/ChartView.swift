@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-import SwiftUI
-
+@available(iOS 13.0, *)
 public struct ChartView: View {
     public enum ChartTypes {
         case barChart
@@ -29,8 +28,15 @@ public struct ChartView: View {
     }
     
     public var body: some View {
-        VStack {
-            BarChart(data: $data, style: $style, selectedIndex: selectedIndex)
+        getChart()
+    }
+
+    func getChart() -> AnyView {
+        switch chartType {
+        case .barChart:
+            return AnyView(BarChart(data: $data, style: $style, selectedIndex: selectedIndex))
+        case .lineChart:
+            return AnyView(LineChart(data: $data, style: $style))
         }
     }
 }

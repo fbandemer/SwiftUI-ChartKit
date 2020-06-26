@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-public class ChartStyle {
+@available(iOS 13.0, *)
+public struct ChartStyle {
     var color: Color = .blue
     var reflectionColor: Color = Color.blue.opacity(0.4)
     var gradient: Gradient?
@@ -22,6 +23,8 @@ public class ChartStyle {
     var strokeLineWidth: CGFloat?
     var reflectionRatio: Double?
     var insert: Double = 22
+    var numberOfLines: Int = 2
+    var lineWidth: CGFloat = 3
     
 //    public init() {    }
 }

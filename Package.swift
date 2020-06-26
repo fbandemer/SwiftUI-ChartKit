@@ -24,8 +24,8 @@ let package = Package(
         .target(
             name: "SwiftUI_ChartKit",
             dependencies: []),
-        .testTarget(
-            name: "SwiftUI_ChartKitTests",
-            dependencies: ["SwiftUI_ChartKit"]),
+//        .testTarget(
+//            name: "SwiftUI_ChartKitTests",
+//            dependencies: ["SwiftUI_ChartKit"]),
     ]
 )

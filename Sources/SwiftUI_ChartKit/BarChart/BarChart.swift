@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct BarChart: View {
     @Binding var data: [ChartDataPoint]
     @Binding var style : ChartStyle
