@@ -15,7 +15,6 @@ struct LineChart: View {
     
     var body: some View {
         VStack {
-            Text("\(yVal)")
             GeometryReader { geometry in
                 LineView(dataPoints: self.$data, style: self.$style, frame: .init(width: geometry.frame(in: .local).width, height: geometry.frame(in: .local).height), yPos: self.$yVal)
                 
