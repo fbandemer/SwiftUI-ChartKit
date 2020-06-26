@@ -9,8 +9,8 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public class ChartModel: ObservableObject {
-    @Published var chartData = [ChartDataPoint]()
-    @Published var chartStyle : ChartStyle
+    @Published public var chartData = [ChartDataPoint]()
+    @Published public var chartStyle : ChartStyle
 
     
     public init(values: [Double]) {
