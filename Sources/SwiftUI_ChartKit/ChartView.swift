@@ -12,6 +12,7 @@ public struct ChartView: View {
     public enum ChartTypes {
         case barChart
         case lineChart
+        case pieChart
     }
     
     var chartType: ChartTypes
@@ -37,6 +38,8 @@ public struct ChartView: View {
             return AnyView(BarChart(data: $data, style: $style, selectedIndex: selectedIndex))
         case .lineChart:
             return AnyView(LineChart(data: $data, style: $style))
+        case .pieChart:
+            return AnyView(PieChart(data: $data, style: $style))
         }
     }
 }
