@@ -25,6 +25,8 @@ public struct ChartStyle {
     var insert: Double = 22
     var numberOfLines: Int = 2
     var lineWidth: CGFloat = 3
+    var colors: [Color]?
+    var reflectionColors: [Color]?
     
 //    public init() {    }
 }

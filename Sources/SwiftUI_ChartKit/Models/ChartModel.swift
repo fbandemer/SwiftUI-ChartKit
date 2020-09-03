@@ -15,24 +15,26 @@ public class ChartModel: ObservableObject {
     
     public init(values: [Double]) {
         self.chartStyle = ChartStyle()
+        let total = values.reduce(0.0, +)
         for dataPoint in values {
             if let maxValue = values.max() {
-                self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), xValue: ""))
+                self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), percantage: dataPoint / total * 100, xValue: ""))
             } else {
                 // TODO: Error Tracking
-                self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 1, xValue: ""))
+                self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 1, percantage: dataPoint / total * 100, xValue: ""))
             }
         }
     }
     
     public func updateData(values: [Double]) {
         chartData.removeAll()
+        let total = values.reduce(0.0, +)
         for dataPoint in values {
             if let maxValue = values.max() {
-                chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), xValue: ""))
+                chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), percantage: dataPoint / total * 100, xValue: ""))
             } else {
                 // TODO: Error Tracking
-                chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 1, xValue: ""))
+                chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 1, percantage: dataPoint / total * 100, xValue: ""))
             }
         }
     }
@@ -43,6 +45,12 @@ public class ChartModel: ObservableObject {
         if chartStyle.gradient != nil {
             chartStyle.gradient = nil
         }
+        return self
+    }
+    
+    public func setColors(colors: [Color]) -> ChartModel {
+        chartStyle.colors = colors
+        chartStyle.reflectionColors = colors.map { $0.opacity(0.5) }
         return self
     }
     

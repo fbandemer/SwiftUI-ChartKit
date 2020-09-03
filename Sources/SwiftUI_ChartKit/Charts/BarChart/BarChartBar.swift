@@ -11,7 +11,7 @@ import SwiftUI
 struct BarChartBar: View {
     @State var show : Bool = false
     @Binding var value: Double
-    @Binding var color: Color
+    @State var color: Color
     var gradient: Gradient?
     var width: CGFloat
     var cornerRadius: CGFloat

@@ -21,7 +21,7 @@ struct BarChart: View {
                     VStack(spacing: 1) {
                         BarChartBar(
                             value: self.$data[index].normalizedValue,
-                            color: self.$style.color,
+                            color: getColor(index: index),
                             gradient: self.style.gradient,
                             width: self.getBarWidth(width: geometry.frame(in: .local).width),
                             cornerRadius: self.style.cornerRadius,
@@ -33,7 +33,7 @@ struct BarChart: View {
                             .scaleEffect(self.selectedIndex == index ? 1.1 : 1, anchor: .bottom)
                         BarChartBar(
                             value: self.$data[index].normalizedValue,
-                            color: self.$style.reflectionColor,
+                            color: getRefColor(index: index),
                             gradient: self.style.reflectionGradient,
                             width: self.getBarWidth(width: geometry.frame(in: .local).width),
                             cornerRadius: self.style.cornerRadius,
@@ -60,6 +60,22 @@ struct BarChart: View {
 }
 
 extension BarChart {
+    
+    func getColor(index: Int) -> Color {
+        if self.style.colors?.count == data.count {
+            return style.colors![index]
+        } else {
+            return style.color
+        }
+    }
+    
+    func getRefColor(index: Int) -> Color {
+        if self.style.colors?.count == data.count {
+            return style.reflectionColors![index]
+        } else {
+            return style.color
+        }
+    }
     
     func getAnimationDelay(index: Int) -> Double {
         return Double(index) / Double(data.count) * style.appearDuration
