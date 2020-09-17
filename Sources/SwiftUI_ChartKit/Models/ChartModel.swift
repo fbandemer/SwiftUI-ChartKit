@@ -36,7 +36,13 @@ public class ChartModel: ObservableObject {
         let total = values.reduce(0.0, +)
         for dataPoint in values {
             if let maxValue = values.max() {
-                chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), percantage: dataPoint / total * 100, xValue: ""))
+                if maxValue > 0 {
+                    chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), percantage: dataPoint / total * 100, xValue: ""))
+                } else {
+                    chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 0, percantage: 0, xValue: ""))
+                }
+                
+                
             } else {
                 // TODO: Error Tracking
                 chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 1, percantage: dataPoint / total * 100, xValue: ""))
