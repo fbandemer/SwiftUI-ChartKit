@@ -21,7 +21,7 @@ public class ChartModel: ObservableObject {
                 if maxValue > 0 {
                     self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: (dataPoint / maxValue), percantage: dataPoint / total * 100, xValue: ""))
                 } else {
-                    self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 0, percantage: dataPoint / total * 100, xValue: ""))
+                    self.chartData.append(ChartDataPoint(yValue: dataPoint, normalizedValue: 0, percantage: 0, xValue: ""))
                 }
                 
             } else {
