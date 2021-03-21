@@ -28,5 +28,5 @@ public struct ChartStyle {
     var colors: [Color]?
     var reflectionColors: [Color]?
     
-//    public init() {    }
+    public init() {    }
 }
